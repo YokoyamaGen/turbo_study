@@ -1,0 +1,7 @@
+<%= form_with url: posts_path, method: :post do |f| %>
+  <div>
+    <%= f.label :title, "Title for Option A" %>
+    <%= f.text_field :title %>
+  </div>
+  <%= f.submit "Submit for A" %>
+<% end %>

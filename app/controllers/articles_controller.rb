@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
-  before_action :redirect_index, only: %i[ new show edit ]
+  # before_action :redirect_index, only: %i[ new show edit ]
 
   # GET /articles
   def index
@@ -14,11 +14,11 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    if params[:button]
-      render :_new_button
-    else
-      @article = Article.new
-    end
+    p "========================="
+    p "new"
+    p "========================="
+    @option = params[:option]
+    render partial: "forms/#{@option}_form" if request.xhr?
   end
 
   # GET /articles/1/edit
