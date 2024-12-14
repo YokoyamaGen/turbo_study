@@ -36,6 +36,8 @@ export default class extends Controller {
 
     // Chart.register(annotationPlugin);
 
+    const initialY = 40;
+
     const ctx = this.canvasTarget.getContext("2d");
 
     this.chart = new Chart(ctx, {
@@ -66,27 +68,27 @@ export default class extends Controller {
             annotations: {
               line1: {
                 type: "line",
-                yMin: 60,
-                yMax: 60,
+                yMin: initialY,
+                yMax: initialY,
                 borderColor: "rgb(255, 99, 132)",
                 borderWidth: 2,
               },
             },
           },
         },
-        // scales: {
-        //   y: {
-        //     beginAtZero: true,
-        //   },
-        // },
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
       },
     });
   }
 
   // チャートを破棄する必要がある場合のメソッド例
-  // disconnect() {
-  //   if (this.chart) {
-  //     this.chart.destroy();
-  //   }
-  // }
+  disconnect() {
+    if (this.chart) {
+      this.chart.destroy();
+    }
+  }
 }
