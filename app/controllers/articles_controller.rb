@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
     p "========================="
     p "new"
     p "========================="
-    @option = params[:option]
+    @option = param[:option]
     render partial: "forms/#{@option}_form" if request.xhr?
   end
 
