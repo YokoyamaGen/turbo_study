@@ -14,10 +14,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    p "========================="
-    p "new"
-    p "========================="
-    @option = param[:option]
+    @option = params[:option]
     render partial: "forms/#{@option}_form" if request.xhr?
   end
 
